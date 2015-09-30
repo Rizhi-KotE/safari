@@ -11,10 +11,13 @@
 #include <tchar.h>
 #include <iostream>
 #include <vector>
+#include <string>
+#include <iomanip>
 
-#include "animal.h"
+#include "Animal.h"
 #include "Plant.h"
 #include "Area.h"
+#include "DrawCMD.h"
 
 using namespace std;
 

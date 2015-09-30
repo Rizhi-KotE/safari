@@ -1,12 +1,19 @@
 #pragma once
 #include "stdafx.h"
-	class animal
+using namespace std;
+
+class Plant;
+class Area;
+
+	class Animal
 	{
 		double weight;
 		int age;
 		bool gender;
+		string name;
 	public:
-		animal(double weight = 0, int age = 0, bool gender = true);
+		Animal();
+		//Animal(double weight = 0, int age = 0, bool gender = true, string name = "animal");
 		void setWeight(double weight = 1);
 		double getWeight();
 		void setAge(int age = 0);
@@ -15,5 +22,11 @@
 		bool getGender();
 		void eat();
 		void talk();
-		~animal();
+		~Animal();
+		string & getName();
+		void reproduction(Plant *);
+		void a(Area);
 	};
+
+
+
