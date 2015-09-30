@@ -1,13 +1,14 @@
 #include "stdafx.h"
 #include "Animal.h"
 
-/*Animal::Animal(double weight, int age, bool gender)
+Animal::Animal(double weight, int age, bool gender, string name)
 {
 	this->weight = weight;
 	this->age = age;
 	this->gender = gender;
+	this->name = name;
 	std::cout << "Born\n";
-}*/
+}
 void Animal::setAge(int age)
 {
 	this->age = age;
@@ -44,6 +45,6 @@ string & Animal::getName()
 {
 	return name;
 }
-Animal::Animal()
+/*Animal::Animal()
 {
-}
+}*/

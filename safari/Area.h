@@ -19,5 +19,5 @@ public:
 	void a(Animal);
 	void a(Plant);
 	vector<vector<Cell *>> getArea();
-	vector<Animal *> getAnimals(int x = 0, int y = 0);
+	vector<Animal > getAnimals(int x = 0, int y = 0);
 };

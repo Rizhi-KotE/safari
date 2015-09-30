@@ -12,8 +12,8 @@ class Area;
 		bool gender;
 		string name;
 	public:
-		Animal();
-		//Animal(double weight = 0, int age = 0, bool gender = true, string name = "animal");
+		//Animal();
+		Animal(double weight = 0, int age = 0, bool gender = true, string name = "animal");
 		void setWeight(double weight = 1);
 		double getWeight();
 		void setAge(int age = 0);

@@ -7,7 +7,7 @@
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-
+	Animal a = Animal();
     Area area(3,3);// = Area(3, 3);
 	area.setPlant(Plant(), 1, 1);
 	DrawCMD drawer = DrawCMD(area);

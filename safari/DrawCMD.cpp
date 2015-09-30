@@ -27,7 +27,7 @@ void DrawCMD::drawing()
 		for (int z = 0; z < 4; z++)
 		{
 			for (int j = 0; j < y; j++)
-				cout << "|" << setw(6) << area->getAnimals(i, j)[z]->getName() << "|" ;
+				cout << "|" << setw(6) << area->getAnimals(i, j)[z].getName() << "|" ;
 			cout << endl;
 		}
 		for (int j = 0; j < y; j++)
@@ -41,6 +41,6 @@ void DrawCMD::drawCell(int x, int y)
 	cout << setw(8) << "|------|\n";
 	cout << "|" << setw(6) << area->getPlant(x, y).getName() << "|" << endl;
 	for (int i = 0; i < 4; i++)
-		cout << "|" << setw(6) << area->getAnimals(x, y)[i]->getName() << "|" << endl;
+		cout << "|" << setw(6) << area->getAnimals(x, y)[i].getName() << "|" << endl;
 	cout << setw(8) << "|------|\n";
 }
