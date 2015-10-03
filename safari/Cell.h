@@ -1,10 +1,12 @@
 #pragma once
 class Cell
 {
+
 public:
-	Cell();
+	Cell(int n = 0);
 	~Cell();
-	Plant plant;
-	vector<Animal> animals;
+	Plant *plant;
+	vector <Animal*> animals;
+	int n;
 };
 

@@ -19,28 +19,31 @@ void DrawCMD::drawing()
 		{
 			cout << setw(8) << "|------|";
 		}
+		cout << endl;
 		{
 			for (int j = 0; j < y; j++)
-				cout << "|" << setw(6) << area->getPlant(x,y).getName() << "|";
+				cout << "|" << setw(6) << (area->getPlant(i,j) == NULL ?  "" : area->getPlant(i, j)->getName()) << "|";
 			cout << endl;
 		}
 		for (int z = 0; z < 4; z++)
 		{
 			for (int j = 0; j < y; j++)
-				cout << "|" << setw(6) << area->getAnimals(i, j)[z].getName() << "|" ;
+				cout << "|" << setw(6) << (area->getAnimals(i, j)[z] == NULL ? "" : area->getAnimals(i, j)[z]->getName())
+				<< "|";
 			cout << endl;
 		}
 		for (int j = 0; j < y; j++)
 		{
 			cout << setw(8) << "|------|";
 		}
+		cout << endl;
 	}
 }
 void DrawCMD::drawCell(int x, int y)
 {
 	cout << setw(8) << "|------|\n";
-	cout << "|" << setw(6) << area->getPlant(x, y).getName() << "|" << endl;
+	cout << "|" << setw(6) << area->getPlant(x, y)->getName() << "|" << endl;
 	for (int i = 0; i < 4; i++)
-		cout << "|" << setw(6) << area->getAnimals(x, y)[i].getName() << "|" << endl;
+		cout << "|" << setw(6) << area->getAnimals(x, y)[i]->getName() << "|" << endl;
 	cout << setw(8) << "|------|\n";
 }

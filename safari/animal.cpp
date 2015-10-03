@@ -47,4 +47,6 @@ string & Animal::getName()
 }
 /*Animal::Animal()
 {
+	std::cout << "born\n";
 }*/
+
