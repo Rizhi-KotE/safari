@@ -7,15 +7,20 @@
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-
-    Area area(3,3);// = Area(3, 3);
-	area.setPlant(Plant(), 1, 1);
+	//Animal a = Animal();
+	Plant *z = new Plant();
+    Area area = Area(3, 3);
+	area.setPlant(z, 1, 1);
 	DrawCMD drawer = DrawCMD(area);
 	while (true)
 	{
 		drawer.drawing();
-		area.getPlant(1, 1).vitalCycle(area);
-		system("pause");
+		for (int i = 0; i < area.getAlivePlant()->size(); i++)
+		{
+			if (area.getAlivePlant()->at(i)->vitalCycle(area) == true)
+				area.plantDied(i);
+		}
+ 		system("pause");
 	}
 	
 	return 0;

@@ -3,19 +3,21 @@
 
 void Plant::reproduction( Area &area)
 {
-	bool bl = rand() % 2;
+	bool bl = (bool)rand() % 2;
 	if (bl == true)
 	{
 		int dX = (rand() % 3) - 1;
 		int dY = (rand() % 3) - 1;
-		Plant tmp = Plant();
+		Plant *tmp = new Plant();
 		area.setPlant(tmp, x + dX, y + dY);
 	}
 }
 
 Plant::Plant()
 {
+	maxHP=healthPoint = 2;
 	name = "Plant";
+	std::cout << "Plant born\n";
 }
 
 
@@ -28,7 +30,7 @@ bool Plant::vitalCycle(Area & area)
 	//bool alive = true;
 	reproduction(area);
 	healthPoint--;
-	return (bool)healthPoint;
+	return (healthPoint == 0 ? true : false);
 }
 void Plant::setXY(size_t x, size_t y)
 {
@@ -38,4 +40,8 @@ void Plant::setXY(size_t x, size_t y)
 string & Plant::getName()
 {
 	return name;
+}
+void Plant::reborn()
+{
+	healthPoint = maxHP;
 }

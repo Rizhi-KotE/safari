@@ -18,6 +18,7 @@
 #include "Plant.h"
 #include "Area.h"
 #include "DrawCMD.h"
+#include "Cell.h"
 
 using namespace std;
 

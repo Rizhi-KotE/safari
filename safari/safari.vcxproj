@@ -81,6 +81,7 @@
   <ItemGroup>
     <ClInclude Include="animal.h" />
     <ClInclude Include="Area.h" />
+    <ClInclude Include="Cell.h" />
     <ClInclude Include="DrawCMD.h" />
     <ClInclude Include="Gras.h" />
     <ClInclude Include="Plant.h" />
@@ -90,6 +91,7 @@
   <ItemGroup>
     <ClCompile Include="animal.cpp" />
     <ClCompile Include="Area.cpp" />
+    <ClCompile Include="Cell.cpp" />
     <ClCompile Include="DrawCMD.cpp" />
     <ClCompile Include="Gras.cpp" />
     <ClCompile Include="Plant.cpp" />

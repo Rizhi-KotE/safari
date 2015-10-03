@@ -7,6 +7,7 @@ class Plant
 protected:
 	string name;
 	int healthPoint;
+	int maxHP;
 	size_t x;
 	size_t y;
 public:
@@ -19,5 +20,8 @@ public:
 	string & getName();
 	void a(Animal);
 	void a(Area);
+	int getX(){ return x; };
+	int getY(){ return y; };
+	void reborn();
 };
  
