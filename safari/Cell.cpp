@@ -2,11 +2,11 @@
 #include "Cell.h"
 
 
-Cell::Cell(int n)
+Cell::Cell(int maxAni)
 {
-		animals.resize(4);
+		animals.reserve(4);
 		plant = NULL;
-		this->n = n;
+		this->maxAni = maxAni;
 }
 
 

@@ -12,6 +12,7 @@ DrawCMD::~DrawCMD()
 }
 void DrawCMD::drawing()
 {
+	system("cls");
 	int x = area->getArea().size();
 	int y = area->getArea()[0].size();
 	for (int i = 0; i < x; i++){
@@ -28,8 +29,8 @@ void DrawCMD::drawing()
 		for (int z = 0; z < 4; z++)
 		{
 			for (int j = 0; j < y; j++)
-				cout << "|" << setw(6) << (area->getAnimals(i, j)[z] == NULL ? "" : area->getAnimals(i, j)[z]->getName())
-				<< "|";
+				cout << "|" << setw(6) << (z < area->getAnimals(i, j).size() ? area->getAnimals(i, j)[z]->getName() : "")
+					<< "|";
 			cout << endl;
 		}
 		for (int j = 0; j < y; j++)
@@ -38,12 +39,37 @@ void DrawCMD::drawing()
 		}
 		cout << endl;
 	}
-}
-void DrawCMD::drawCell(int x, int y)
-{
-	cout << setw(8) << "|------|\n";
-	cout << "|" << setw(6) << area->getPlant(x, y)->getName() << "|" << endl;
-	for (int i = 0; i < 4; i++)
-		cout << "|" << setw(6) << area->getAnimals(x, y)[i]->getName() << "|" << endl;
-	cout << setw(8) << "|------|\n";
+	/*string s;
+	for (int i = 0; i < x; i++){
+		for (int j = 0; j < y; j++)
+		{
+			s+="|------|";
+		}
+		s+="\n";
+		{
+			for (int j = 0; j < y; j++)
+			{
+				s += "|";
+				s += (area->getPlant(i, j) == NULL ? "      " : area->getPlant(i, j)->getName()+" ");
+				s += "|";
+			}
+			s += "\n";
+		}
+		for (int z = 0; z < 4; z++)
+		{
+			for (int j = 0; j < y; j++)
+			{
+				s += "|";
+				s += (z < area->getAnimals(i, j).size() ? area->getAnimals(i, j)[z]->getName() : "      ");
+				s += "|";
+			}
+			s += "\n";
+		}
+		for (int j = 0; j < y; j++)
+		{
+			s += "|------|";
+		}
+		s += "\n";
+	}
+	cout << s << endl;*/
 }

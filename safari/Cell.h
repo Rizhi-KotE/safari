@@ -1,12 +1,12 @@
 #pragma once
 class Cell
 {
-
+	int maxAni = 4;
 public:
-	Cell(int n = 0);
+	Cell(int maxAni = 4);
 	~Cell();
+	int getMaxAni(){ return maxAni; };
 	Plant *plant;
 	vector <Animal*> animals;
-	int n;
 };
 

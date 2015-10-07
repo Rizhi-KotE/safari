@@ -38,7 +38,7 @@ Area::Area(int x, int y)
 		//row.resize(y);
 		for (int j = 0; j < y; j++)
 		{
-			Cell c = Cell(j);
+			Cell c = Cell();
 			row.push_back(c);
 		}
 		area.push_back(row);
@@ -77,3 +77,82 @@ vector<Animal *> Area::getAnimals(int x, int y)
 }
 vector<Plant *> * Area::getAlivePlant()
 { return &alivePlant; }
+/*!
+обрабатывает жизненный цикл у всех живых растений
+*/
+void Area::plantsLife()
+{
+	int plantsValue = getAlivePlant()->size();
+	for (int i = 0; i < plantsValue; i++)
+	{
+		getAlivePlant()->at(i)->vitalCycle(*this);
+	}
+	for (int i = 0; i < plantsValue; i++)
+	{
+		if (getAlivePlant()->at(i)->getHP() <= 0)
+		{
+			plantDied(i);
+			i--;
+			plantsValue--;
+		}
+	}
+}
+void Area::animalsLife()
+{
+	int AnimalsValue = getAliveAnimals()->size();
+	for (int i = 0; i < AnimalsValue; i++)
+	{
+		//getAliveAnimals()->at(i)->vitalCycle(*this);
+	}
+	for (int i = 0; i < AnimalsValue; i++)
+	{
+		if (getAliveAnimals()->at(i)->getHP() <= 0)
+		{
+			//AnimalDied(i);
+			i--;
+			AnimalsValue--;
+		}
+	}
+}
+bool Area::locateAnimal(Animal *ani, int x, int y)
+{
+	if ((x < area.size()) && (x >= 0))
+	if ((y < area[x].size()) && (y >= 0))
+	{
+		if (area[x][y].animals.size() < area[x][y].getMaxAni()){
+			area[x][y].animals.push_back(ani);
+			ani->setXYI(x, y, area[x][y].animals.size() - 1);
+			this->aliveAnimals.push_back(ani);
+			return true;
+		}
+	}
+	return false;
+}
+vector<Animal *> *Area::getAliveAnimals()
+{
+	return &aliveAnimals;
+}
+bool Area::changeLocateAnimal(Animal *ani, int x, int y)
+{
+	if ((x < area.size()) && (x >= 0))
+	if ((y < area[x].size()) && (y >= 0))
+	{
+		if (area[x][y].animals.size() < area[x][y].getMaxAni()){
+			area[ani->getX()][ani->getY()].animals.erase(area[ani->getX()][ani->getY()].animals.begin() + ani->getI());
+			ani->setI(area[x][y].animals.size());
+			area[x][y].animals.push_back(ani);
+			ani->setXYI(x, y, area[x][y].animals.size() - 1);
+			return true;
+		}
+	}
+	return false;
+}
+void Area::animalDied(int j)
+{
+	int x = this->aliveAnimals[j]->getX();
+	int y = this->aliveAnimals[j]->getY();
+	int i = this->aliveAnimals[j]->getI();
+ 	this->alivePlant[j]->~Plant();
+	area[x][y].animals.erase(area[x][y].animals.begin() + i);
+	this->alivePlant.erase(alivePlant.begin() + j);	
+}
